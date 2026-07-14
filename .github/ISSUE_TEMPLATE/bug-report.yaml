@@ -1,0 +1,66 @@
+name: バグの報告
+description: バグや不具合を見つけた際は、バグレポートを作成してください。
+labels: ["bug report"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **セキュリティ脆弱性はここで報告しないでください**。
+        セキュリティ問題の開示手順については [SECURITY.md](https://github.com/gmo-internet/conoha_skills/blob/main/SECURITY.md) をご覧ください。
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: チェックリスト
+      options:
+        - label: ①[README](https://github.com/gmo-internet/conoha_skills/blob/main/README.md) やその他関連するページを確認したが、解決策または回答は見つかりませんでした。
+          required: true
+        - label: ②[Issues](https://github.com/gmo-internet/conoha_skills/issues/) を検索しましたが、解決策または回答は見つかりませんでした。
+          required: true
+        - label: ③[サポートページ](https://support.conoha.jp/) で検索しましたが、解決策または回答は見つかりませんでした。
+          required: true
+        - label: ④[ConoHa Skills Code of Conduct](https://github.com/gmo-internet/conoha_skills/blob/main/CODE_OF_CONDUCT.md) の内容に同意します。
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 不具合の概要
+      description: 発生した事象と期待した結果を、わかりやすく簡潔に記載してください。
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 再現手順
+      description: エラーを再現する手順を詳しく記載してください。毎回再現するか、断続的に発生するかも明記してください。
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: 追加情報
+      description: 関連する他のプラグイン・Skill や、参考になりそうな情報があれば記載してください。
+    validations:
+      required: false
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: プラグイン（例 vps-mcp）のバージョン
+    validations:
+      required: true
+
+  - type: input
+    id: claude-code-version
+    attributes:
+      label: Claude Code のバージョン
+    validations:
+      required: false

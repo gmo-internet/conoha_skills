@@ -1,0 +1,9 @@
+{
+	"useTabs": true,
+	"tabWidth": 2,
+	"printWidth": 80,
+	"endOfLine": "lf",
+	"singleQuote": false,
+	"trailingComma": "all",
+	"ignorePatterns": ["node_modules"]
+}

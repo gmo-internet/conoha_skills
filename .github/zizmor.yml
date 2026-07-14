@@ -1,0 +1,11 @@
+# zizmor config — https://docs.zizmor.sh/configuration/
+# push-to-public.yaml is the org-standard mirror (kept verbatim): it calls the shared
+# reusable workflow at @main and uses `secrets: inherit` by design, so those two audits
+# are suppressed for that file only.
+rules:
+  unpinned-uses:
+    ignore:
+      - push-to-public.yaml
+  secrets-inherit:
+    ignore:
+      - push-to-public.yaml

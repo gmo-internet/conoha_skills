@@ -1,0 +1,48 @@
+name: GitHub Actions Lint
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/**"
+      - ".github/actionlint-matcher.json"
+      - ".github/zizmor.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  actionlint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          persist-credentials: false
+      - name: Install actionlint
+        run: bash <(curl -sSfL https://raw.githubusercontent.com/rhysd/actionlint/v1.7.7/scripts/download-actionlint.bash) 1.7.7
+      - name: Register problem matcher
+        run: echo "::add-matcher::.github/actionlint-matcher.json"
+      - name: Run actionlint
+        run: ./actionlint -color
+
+  zizmor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          persist-credentials: false
+      # --offline is required: the online `ref-confusion` audit hard-fails trying to list
+      # branches of the private gmo-internet/priv_share reusable-workflow repo referenced
+      # by push-to-public.yaml (the repo-scoped GITHUB_TOKEN has no cross-repo access).
+      # Offline audits still cover unpinned-uses, artipacked, secrets-inherit,
+      # template-injection, excessive-permissions, etc.
+      - name: Run zizmor
+        run: pipx run zizmor==1.25.2 --offline --no-progress .github/workflows/

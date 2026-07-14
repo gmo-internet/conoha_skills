@@ -1,0 +1,6 @@
+# Internal Markdown link check — offline, deterministic (relative links only).
+# External URLs / mail are out of scope; only local file/dir links are verified.
+exclude = ["^https?://", "^mailto:"]
+exclude_path = ["node_modules", ".git", ".github", ".claude"]
+extensions = ["md", "markdown"]
+no_progress = true

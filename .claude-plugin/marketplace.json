@@ -1,0 +1,15 @@
+{
+	"$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+	"name": "conoha",
+	"description": "GMO Internet が提供する ConoHa 関連の Claude Code プラグイン マーケットプレイス。",
+	"owner": {
+		"name": "GMO Internet"
+	},
+	"plugins": [
+		{
+			"name": "vps-mcp",
+			"source": "./plugins/vps-mcp",
+			"description": "ConoHa VPS を MCP で操作するためのワークフロー・制約・スキーマガイドと、ConoHa VPS MCP サーバー接続を提供するプラグイン。"
+		}
+	]
+}

@@ -1,0 +1,14 @@
+# CODEOWNERS
+# Default owners for everything in the repo.
+* @s-hirano-ist @masayay
+
+# Distribution content and manifests
+/.claude-plugin/ @s-hirano-ist @masayay
+/plugins/ @s-hirano-ist @masayay
+
+# CI, community-health, and top-level docs
+/.github/ @s-hirano-ist @masayay
+/README.md @s-hirano-ist @masayay
+/SECURITY.md @s-hirano-ist @masayay
+/CONTRIBUTING.md @s-hirano-ist @masayay
+/CODE_OF_CONDUCT.md @s-hirano-ist @masayay

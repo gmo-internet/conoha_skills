@@ -1,0 +1,11 @@
+# Claude Code local settings (developer-local, not part of the plugin)
+.claude/settings.local.json
+
+# OS / editor artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Logs
+*.log

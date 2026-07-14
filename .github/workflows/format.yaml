@@ -1,0 +1,35 @@
+name: Format
+
+on:
+  pull_request:
+    paths:
+      - "**/*.json"
+      - "**/*.md"
+      - "**/*.yaml"
+      - "**/*.yml"
+      - "**/*.toml"
+      - ".oxfmtrc.json"
+      - ".github/workflows/format.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  oxfmt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          persist-credentials: false
+      # Format the whole repo. oxfmt auto-discovers all supported files (JSON, Markdown,
+      # YAML, TOML) including dot-paths; scope is controlled by .gitignore and the
+      # `ignorePatterns` in .oxfmtrc.json.
+      - name: Check formatting
+        run: npx --yes oxfmt@0.53.0 --check .
