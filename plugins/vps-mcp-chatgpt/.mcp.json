@@ -1,0 +1,8 @@
+{
+	"mcpServers": {
+		"conoha-vps-mcp-chatgpt": {
+			"type": "http",
+			"url": "https://api.conoha.jp/vps/chatgpt"
+		}
+	}
+}

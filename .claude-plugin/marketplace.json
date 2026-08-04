@@ -10,6 +10,11 @@
 			"name": "vps-mcp",
 			"source": "./plugins/vps-mcp",
 			"description": "ConoHa VPS を MCP で操作するためのワークフロー・制約・スキーマガイドと、ConoHa VPS MCP サーバー接続を提供するプラグイン。"
+		},
+		{
+			"name": "vps-mcp-chatgpt",
+			"source": "./plugins/vps-mcp-chatgpt",
+			"description": "ConoHa VPS の ChatGPT 専用エンドポイント (/vps/chatgpt) を MCP で操作するためのガイドと接続を提供するプラグイン。サーバー作成・ボリューム作成・リサイズは利用不可。"
 		}
 	]
 }

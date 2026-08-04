@@ -1,0 +1,26 @@
+{
+	"$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+	"name": "vps-mcp-chatgpt",
+	"displayName": "ConoHa VPS MCP (ChatGPT)",
+	"version": "1.0.0",
+	"description": "ConoHa VPS の ChatGPT 専用エンドポイント (/vps/chatgpt) の操作をガイドするプラグイン。サーバー起動・停止・削除、ボリューム管理（作成除く）、セキュリティグループ操作のワークフロー・制約・スキーマを提供する。サーバー作成・ボリューム作成・リサイズは利用不可。",
+	"author": {
+		"name": "GMO Internet",
+		"url": "https://github.com/gmo-internet"
+	},
+	"homepage": "https://github.com/gmo-internet/conoha_skills",
+	"repository": "https://github.com/gmo-internet/conoha_skills",
+	"license": "Apache-2.0",
+	"keywords": [
+		"conoha",
+		"mcp",
+		"vps",
+		"chatgpt",
+		"server",
+		"volume",
+		"security-group",
+		"gmo"
+	],
+	"skills": ["./skills"],
+	"mcpServers": "./.mcp.json"
+}
